@@ -8,6 +8,7 @@ import {
   Switch,
   withRouter,
 } from "react-router-dom";
+import Sidebar from "./components/Shared/Sidebar";
 
 import SignUp from "./pages/SignUp";
 
@@ -66,14 +67,27 @@ function App(props) {
           }
         `}
       />
+      <div
+        css={css`
+          position: absolute;
+        `}
+      >
+        <Sidebar />
+      </div>
+      <div
+        css={css`
+          padding-left: 290px;
+        `}
+      >
+        <Router>
+          {/* <SignIn /> */}
 
-      <Router>
-        {/* <SignIn /> */}
-        <SignUp />
-        <Fragment>
-          <Switch></Switch>
-        </Fragment>
-      </Router>
+          <SignUp />
+          <Fragment>
+            <Switch></Switch>
+          </Fragment>
+        </Router>
+      </div>
     </div>
   );
 }

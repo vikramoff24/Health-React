@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import { css, jsx } from "@emotion/react";
+import Logo from "./Logo";
 const Navbar = () => {
   return (
     <div
@@ -8,24 +9,13 @@ const Navbar = () => {
         width: 100%;
       `}
     >
-      <p
+      <div
         css={css`
-          font-size: 35px;
-          font-weight: 500;
-          color: #333944;
-          width: fit-content;
           padding: 15px 40px;
         `}
       >
-        Med
-        <span
-          css={css`
-            color: #4f4dab;
-          `}
-        >
-          ex
-        </span>
-      </p>
+        <Logo />
+      </div>
     </div>
   );
 };
