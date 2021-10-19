@@ -53,7 +53,7 @@ function App(props) {
             color: #fff;
             height: 45px;
             display: block;
-            margin-top: 20px;
+
             font-weight: 600;
             &:active {
               color: #fff;

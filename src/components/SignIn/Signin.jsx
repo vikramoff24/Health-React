@@ -9,7 +9,7 @@ const Signin = () => {
           width: 400px;
           display: block;
           margin: 0 auto;
-          margin-top: 100px;
+          margin-top: 38px;
         `}
       >
         <p
@@ -76,6 +76,57 @@ const Signin = () => {
         >
           Sign In
         </button>
+        <div
+          css={css`
+            position: relative;
+          `}
+        >
+          <div
+            css={css`
+              border-top: 1.6px solid rgba(79, 77, 171, 0.75);
+              width: 75%;
+              display: block;
+              margin: 0 auto;
+              margin-top: 34px;
+            `}
+          ></div>
+
+          <p
+            css={css`
+              position: absolute;
+              background-color: #fff;
+              width: fit-content;
+              top: -10px;
+              left: 50%;
+              transform: translate(-50%);
+              font-size: 14px;
+              padding: 0 4px;
+              color: #333944;
+            `}
+          >
+            or continue with
+          </p>
+        </div>
+        <div
+          css={css`
+            border: 1.6px solid #4f4dab;
+            box-sizing: border-box;
+            border-radius: 8px;
+            width: fit-content;
+            padding: 6px 17px;
+            margin: 0 auto;
+            margin-top: 23px;
+          `}
+        >
+          {" "}
+          <img
+            src={googleAuth}
+            alt="google-auth"
+            css={css`
+              width: 30px;
+            `}
+          ></img>
+        </div>
       </div>
     </div>
   );
