@@ -11,6 +11,7 @@ import {
 import Sidebar from "./components/Shared/Sidebar";
 
 import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App(props) {
   return (

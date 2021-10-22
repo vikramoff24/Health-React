@@ -3,6 +3,9 @@ import React from "react";
 import { css, jsx } from "@emotion/react";
 import Logo from "./Logo";
 import Profile from "../../assets/Person.png";
+import i from "../../assets/Icons/dashboard.svg";
+import { menuItems, logOut } from "../Data/SidebarData";
+import MenuItem from "./MenuItem";
 const Sidebar = () => {
   return (
     <div
@@ -62,7 +65,35 @@ const Sidebar = () => {
           John Smith
         </p>
       </div>
-      <div></div>
+      <div
+        css={css`
+          padding-top: 30px;
+          width: fit-content;
+          margin: 0 auto;
+          padding-right: 35px;
+        `}
+      >
+        {" "}
+        {menuItems.map((item) => (
+          <MenuItem item={item} />
+        ))}{" "}
+      </div>
+      <div
+        css={css`
+          border-top: 1px solid rgba(136, 136, 136, 0.5);
+          margin-top: 18px;
+        `}
+      ></div>
+      <div
+        css={css`
+          margin: 0 auto;
+          margin-top: 20px;
+          width: 217px;
+          padding-right: 35px;
+        `}
+      >
+        <MenuItem item={logOut[0]} />
+      </div>
     </div>
   );
 };

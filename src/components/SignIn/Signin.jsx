@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import { css, jsx } from "@emotion/react";
+import googleAuth from "../../assets/google.svg";
+
 const Signin = () => {
   return (
     <div className="container-fluid">
@@ -72,6 +74,7 @@ const Signin = () => {
           className="btn"
           css={css`
             width: 100%;
+            margin-top: 30px;
           `}
         >
           Sign In
