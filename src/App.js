@@ -1,13 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { Global, css, jsx } from "@emotion/react";
 import React, { Fragment } from "react";
-
+import { useAuthState } from "react-firebase-hooks/auth";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   withRouter,
 } from "react-router-dom";
+import { auth } from "./firebase";
 import Sidebar from "./components/Shared/Sidebar";
 
 import SignIn from "./pages/SignIn";
@@ -17,6 +18,8 @@ import HeroCategory from "./components/HomePage/HeroCategory";
 import HomePage from "./pages/HomePage";
 import DoctorPage from "./pages/DoctorPage";
 function App(props) {
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <div>
       <Global
@@ -75,24 +78,33 @@ function App(props) {
         `}
       />
       <Router>
+        {user && (
+          <div
+            css={css`
+              position: absolute;
+            `}
+          >
+            <Sidebar />
+          </div>
+        )}
         <div
-          css={css`
-            position: absolute;
-          `}
-        >
-          <Sidebar />
-        </div>
-        <div
-          css={css`
-            padding-left: 290px;
-          `}
+          css={
+            user
+              ? css`
+                  padding-left: 290px;
+                `
+              : css`
+                  padding-left: 0px;
+                `
+          }
         >
           <Fragment>
             <Switch>
-              {/* <Route path="/" component={HomePage} /> */}
+              <Route path="/" component={HomePage} />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
               <Route path="/doctorpage" comp onent={DoctorPage} />
+              <Route path="/dashboard" component={DashboardPage} />
             </Switch>
           </Fragment>
         </div>
