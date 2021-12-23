@@ -11,7 +11,7 @@ const Navbar = () => {
     >
       <div
         css={css`
-          padding: 15px 40px;
+          padding: 20px 70px;
         `}
       >
         <Logo />

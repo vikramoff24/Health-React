@@ -10,8 +10,6 @@ const SignUp = () => {
   return (
     <div>
       <Navbar />
-      <Table />
-      <DashboardCard />
       <Signup />
     </div>
   );

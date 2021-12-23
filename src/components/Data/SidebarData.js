@@ -18,7 +18,7 @@ const menuItems = [
   },
   {
     icon: patient,
-    path: "/patient",
+    path: "/signin",
     name: "Patient",
   },
   {

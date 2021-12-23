@@ -10,9 +10,12 @@ import {
 } from "react-router-dom";
 import Sidebar from "./components/Shared/Sidebar";
 
-import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
-
+import DashboardPage from "./pages/DashboardPage";
+import SignUp from "./pages/SignUp";
+import HeroCategory from "./components/HomePage/HeroCategory";
+import HomePage from "./pages/HomePage";
+import DoctorPage from "./pages/DoctorPage";
 function App(props) {
   return (
     <div>
@@ -23,6 +26,9 @@ function App(props) {
           box-sizing: border-box;
           *:focus {
             outline: 0 !important;
+          }
+          .base-color {
+            color: rgba(91, 103, 202, 1);
           }
           .form-input {
             border: 2px solid #4f4dab;
@@ -68,27 +74,30 @@ function App(props) {
           }
         `}
       />
-      <div
-        css={css`
-          position: absolute;
-        `}
-      >
-        <Sidebar />
-      </div>
-      <div
-        css={css`
-          padding-left: 290px;
-        `}
-      >
-        <Router>
-          {/* <SignIn /> */}
-
-          <SignUp />
+      <Router>
+        <div
+          css={css`
+            position: absolute;
+          `}
+        >
+          <Sidebar />
+        </div>
+        <div
+          css={css`
+            padding-left: 290px;
+          `}
+        >
           <Fragment>
-            <Switch></Switch>
+            <Switch>
+              {/* <Route path="/" component={HomePage} /> */}
+              <Route path="/signup" component={SignUp} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/doctorpage" comp onent={DoctorPage} />
+            </Switch>
           </Fragment>
-        </Router>
-      </div>
+        </div>
+      </Router>
+      {/* <HomePage /> */}
     </div>
   );
 }

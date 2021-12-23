@@ -1,9 +1,29 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import {
+  auth,
+  signInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase.js";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { css, jsx } from "@emotion/react";
 import googleAuth from "../../assets/google.svg";
 
 const Signin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user) history.replace("/dashboard");
+  }, [user, loading]);
+
   return (
     <div className="container-fluid">
       <div
@@ -58,6 +78,8 @@ const Signin = () => {
             margin-bottom: 8px;
             margin-top: 1px;
           `}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         ></input>
         <p className="form-label">Password</p>
         <input
@@ -65,6 +87,8 @@ const Signin = () => {
           type="password"
           Placeholder="Enter your password"
           autocomplete="off"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           css={css`
             margin-bottom: 8px;
             margin-top: 1px;
@@ -76,6 +100,7 @@ const Signin = () => {
             width: 100%;
             margin-top: 30px;
           `}
+          onClick={() => signInWithEmailAndPassword(email, password)}
         >
           Sign In
         </button>
@@ -120,6 +145,7 @@ const Signin = () => {
             margin: 0 auto;
             margin-top: 23px;
           `}
+          onClick={signInWithGoogle}
         >
           {" "}
           <img

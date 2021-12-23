@@ -1,8 +1,30 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useHistory } from "react-router-dom";
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase";
 import { css, jsx } from "@emotion/react";
 import googleAuth from "../../assets/google.svg";
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (loading) return;
+    if (user) history.replace("/dashboard");
+  }, [user, loading]);
+
+  const register = () => {
+    if (!name) alert("Please enter name");
+    registerWithEmailAndPassword(name, email, password);
+  };
   return (
     <div className="container-fluid">
       <div
@@ -53,6 +75,8 @@ const Signup = () => {
           className="form-input"
           Placeholder="Enter your name"
           autocomplete="off"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           css={css`
             margin-bottom: 8px;
             margin-top: 1px;
@@ -66,6 +90,8 @@ const Signup = () => {
           className="form-input"
           Placeholder="Enter your email address"
           autocomplete="off"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           css={css`
             margin-bottom: 8px;
             margin-top: 1px;
@@ -81,6 +107,8 @@ const Signup = () => {
             margin-bottom: 8px;
             margin-top: 1px;
           `}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button
           className="btn"
@@ -88,6 +116,7 @@ const Signup = () => {
             width: 100%;
             margin-top: 30px;
           `}
+          onClick={register}
         >
           Sign Up
         </button>
@@ -132,6 +161,7 @@ const Signup = () => {
             margin: 0 auto;
             margin-top: 23px;
           `}
+          onClick={signInWithGoogle}
         >
           {" "}
           <img

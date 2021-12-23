@@ -1,12 +1,63 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
 import { css, jsx } from "@emotion/react";
 import Logo from "./Logo";
 import Profile from "../../assets/Person.png";
 import i from "../../assets/Icons/dashboard.svg";
 import { menuItems, logOut } from "../Data/SidebarData";
 import MenuItem from "./MenuItem";
+import { auth, db, logout } from "../../firebase";
+
 const Sidebar = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  const history = useHistory();
+  const [name, setName] = useState("");
+
+  const fetchUserName = async () => {
+    // try {
+    // console.log(user?.uid);
+    // console.log(user);
+    // const query = await db.collection("Client").get();
+    // console.log(query);
+    // if (query.size > 0) {
+    //   const data = await query.docs[0].data();
+    //   console.log(data);
+    //   console.log("now");
+    //   setName(data.name);
+    // } else {
+    //   console.log("No such document!");
+    // }
+    try {
+      //   const query = await db
+      //     .collection("users")
+      //     .where("uid", "==", user?.uid)
+      //     .get();
+      //   const data = await query.docs[0].data();
+      //   setName(data.name);
+      // } catch (err) {
+      //   console.error(err);
+      //   alert("An error occured while fetching user data");
+      // }
+    } catch (err) {
+      console.error(err);
+      // alert("An error occured while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      console.log("no user");
+      return;
+    }
+    if (user) {
+      // fetchUserName();
+      setName(user.displayName);
+    }
+  }, [user, loading]);
   return (
     <div
       css={css`
@@ -62,7 +113,7 @@ const Sidebar = () => {
           `}
         >
           {" "}
-          John Smith
+          {name}
         </p>
       </div>
       <div
@@ -92,7 +143,10 @@ const Sidebar = () => {
           padding-right: 35px;
         `}
       >
-        <MenuItem item={logOut[0]} />
+        {" "}
+        <div onClick={logout}>
+          <MenuItem item={logOut[0]} />
+        </div>
       </div>
     </div>
   );
