@@ -100,7 +100,7 @@ function App(props) {
         >
           <Fragment>
             <Switch>
-              <Route path="/" component={HomePage} />
+              <Route path="/home" component={HomePage} />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
               <Route path="/doctorpage" comp onent={DoctorPage} />
