@@ -13,7 +13,7 @@ const Hero = () => {
     <div
       css={css`
         background-color: #eae9f4;
-        height: 700px;
+        height: 100vh;
         position: relative;
       `}
     >

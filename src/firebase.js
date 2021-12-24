@@ -64,6 +64,7 @@ const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
+
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);

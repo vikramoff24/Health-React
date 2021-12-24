@@ -17,6 +17,7 @@ import SignUp from "./pages/SignUp";
 import HeroCategory from "./components/HomePage/HeroCategory";
 import HomePage from "./pages/HomePage";
 import DoctorPage from "./pages/DoctorPage";
+
 function App(props) {
   const [user, loading, error] = useAuthState(auth);
 
