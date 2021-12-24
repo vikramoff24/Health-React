@@ -13,8 +13,13 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [selected, setSelected] = useState(null);
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
+
+  const handleSelectChange = (e) => {
+    setSelected(e.target.value);
+  };
 
   useEffect(() => {
     if (loading) return;
@@ -25,6 +30,7 @@ const Signup = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
   };
+
   return (
     <div className="container-fluid">
       <div
@@ -110,6 +116,22 @@ const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        <p className="form-label">Who you are?</p>
+        <select
+          className="form-input"
+          css={css`
+            margin-bottom: 8px;
+            margin-top: 1p;
+            padding-right: 20px;
+          `}
+          value={selected}
+          onChange={handleSelectChange}
+        >
+          <option style={{ display: "none" }}>&#xf883; Sort By</option>
+
+          <option value="price_low_to_high">Low To High</option>
+          <option value="price_high_to_low"> High to Low</option>
+        </select>
         <button
           className="btn"
           css={css`
