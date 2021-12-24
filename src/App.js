@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Global, css, jsx } from "@emotion/react";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
   BrowserRouter as Router,
@@ -19,6 +19,11 @@ import HomePage from "./pages/HomePage";
 import DoctorPage from "./pages/DoctorPage";
 function App(props) {
   const [user, loading, error] = useAuthState(auth);
+  const [page, setPage] = useState("/");
+
+  const setCurrPage = (currPage) => {
+    setPage(currPage);
+  };
 
   return (
     <div>
@@ -78,7 +83,7 @@ function App(props) {
         `}
       />
       <Router>
-        {user && (
+        {user && page !== "/home" ? (
           <div
             css={css`
               position: absolute;
@@ -86,10 +91,10 @@ function App(props) {
           >
             <Sidebar />
           </div>
-        )}
+        ) : null}
         <div
           css={
-            user
+            user && page !== "/home"
               ? css`
                   padding-left: 290px;
                 `
@@ -100,7 +105,10 @@ function App(props) {
         >
           <Fragment>
             <Switch>
-              <Route path="/home" component={HomePage} />
+              <Route
+                path="/home"
+                component={() => <HomePage setCurrPage={setCurrPage} />}
+              />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
               <Route path="/doctorpage" comp onent={DoctorPage} />

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Hero from "../components/HomePage/Hero";
 import HeroCategory from "../components/HomePage/HeroCategory";
 import { db } from "../firebase";
-const HomePage = () => {
+const HomePage = (props) => {
   const [data, setData] = useState([]);
   const ref = db.collection("doctors");
-
+  useEffect(() => {
+    props.setCurrPage("/home");
+  }, []);
   useEffect(() => {
     ref.onSnapshot((querySnapshot) => {
       var items = [];
