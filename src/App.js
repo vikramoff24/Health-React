@@ -100,10 +100,10 @@ function App(props) {
         >
           <Fragment>
             <Switch>
-              <Route path="/home" component={HomePage} />
+              <Route exact path="/" component={HomePage} />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
-              <Route path="/doctorpage" comp onent={DoctorPage} />
+              <Route path="/doctorpage" component={DoctorPage} />
               <Route path="/dashboard" component={DashboardPage} />
             </Switch>
           </Fragment>
