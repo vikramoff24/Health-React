@@ -64,14 +64,15 @@ const Signup = () => {
           `}
         >
           Already have an account,{" "}
-          <span
+          <Link
+            to="/signin"
             css={css`
               color: #4f4dab;
               font-weight: 600;
             `}
           >
             Sign in
-          </span>
+          </Link>
         </p>
         <p p className="form-label">
           Name

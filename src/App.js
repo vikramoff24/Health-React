@@ -106,12 +106,13 @@ function App(props) {
           <Fragment>
             <Switch>
               <Route
-                path="/home"
+                exact
+                path="/"
                 component={() => <HomePage setCurrPage={setCurrPage} />}
               />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
-              <Route path="/doctorpage" comp onent={DoctorPage} />
+              <Route path="/doctorpage" component={DoctorPage} />
               <Route path="/dashboard" component={DashboardPage} />
             </Switch>
           </Fragment>

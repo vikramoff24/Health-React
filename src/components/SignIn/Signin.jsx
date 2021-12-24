@@ -57,14 +57,15 @@ const Signin = () => {
           `}
         >
           Don’t have an account,{" "}
-          <span
+          <Link
+            to="/signup"
             css={css`
               color: #4f4dab;
               font-weight: 600;
             `}
           >
             Sign up
-          </span>
+          </Link>
         </p>
         <p p className="form-label">
           Email

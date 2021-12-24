@@ -31,7 +31,7 @@ const menuItems = [
 const logOut = [
   {
     icon: logout,
-    path: "/home",
+    path: "/",
     name: "Logout",
   },
 ];
