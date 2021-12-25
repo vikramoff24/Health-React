@@ -13,7 +13,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
 
@@ -27,8 +27,15 @@ const Signup = () => {
   }, [user, loading]);
 
   const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+    if (!name) {
+      alert("Please enter name");
+      return;
+    }
+    if (!selected) {
+      alert("Please select role");
+      return;
+    }
+    registerWithEmailAndPassword(name, email, password, selected);
   };
 
   return (
@@ -128,10 +135,10 @@ const Signup = () => {
           value={selected}
           onChange={handleSelectChange}
         >
-          <option style={{ display: "none" }}>&#xf883; Sort By</option>
+          <option style={{ display: "none" }}>Select role</option>
 
-          <option value="price_low_to_high">Low To High</option>
-          <option value="price_high_to_low"> High to Low</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Patient"> Patient</option>
         </select>
         <button
           className="btn"

@@ -5,20 +5,15 @@ const firebaseConfig = {
   apiKey: "AIzaSyAOFuPIZ5XFw2RKXvDu6ZYhVh8-OlXyGd4",
   authDomain: "medex-583a2.firebaseapp.com",
   databaseURL: "https://medex-583a2-default-rtdb.firebaseio.com",
-
+  projectId: "medex-583a2",
   storageBucket: "medex-583a2.appspot.com",
   messagingSenderId: "688094426420",
   appId: "1:688094426420:web:e46214081e3b9733e06161",
-  projectId: "medex-583a2",
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-
 const auth = app.auth();
-
 const db = app.firestore();
-
-db.enablePersistence();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -69,38 +64,23 @@ const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-// const registerWithEmailAndPassword = async (name, email, password) => {
-//   try {
-//     const res = await auth.createUserWithEmailAndPassword(email, password);
-//     const user = res;
-//     const userRef = db.doc(`users/${user.uid}`);
-//     const snapshot = await userRef.get();
-//     console.log(userRef);
-//     if (!snapshot.exixts) {
-//       userRef.set({
-//         uid: user.uid,
-//         name: user.displayName,
-//         authProvider: "google",
-//         email: user.email,
-//         createdAt: new Date(),
-//       });
-//     }
-//   } catch (err) {
-//     console.error(err);
-//     alert(err.message);
-//   }
-// };
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name, email, password, role) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
-    // const user = res.user;
-    console.log(res.uid);
-    await db.collection("users").doc(res.uid).set({
-      uid: res.uid,
-      name,
-      authProvider: "local",
-      email,
-    });
+    const user = res;
+    const userRef = db.doc(`users/${user.uid}`);
+    const snapshot = await userRef.get();
+    console.log(userRef);
+    if (!snapshot.exixts) {
+      userRef.set({
+        uid: user.uid,
+        name: name,
+        authProvider: "local",
+        email: email,
+        role: role,
+        createdAt: new Date(),
+      });
+    }
   } catch (err) {
     console.error(err);
     alert(err.message);

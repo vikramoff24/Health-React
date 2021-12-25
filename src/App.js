@@ -83,7 +83,7 @@ function App(props) {
         `}
       />
       <Router>
-        {user && page !== "/home" ? (
+        {user && page !== "/" ? (
           <div
             css={css`
               position: absolute;
@@ -94,7 +94,7 @@ function App(props) {
         ) : null}
         <div
           css={
-            user && page !== "/home"
+            user && page !== "/"
               ? css`
                   padding-left: 290px;
                 `
