@@ -62,15 +62,15 @@ const Sidebar = () => {
     <div
       css={css`
         box-shadow: 4px 0px 16px rgba(51, 57, 68, 0.12);
-        width: 290px;
-        height: 720px;
+        height: 100vh;
+        overflow-y: auto;
       `}
     >
       <div
         css={css`
           margin: 0 auto;
           width: fit-content;
-          padding-top: 15px;
+          padding-top: 1.5rem;
         `}
       >
         {" "}

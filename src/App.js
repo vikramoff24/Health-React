@@ -2,28 +2,19 @@
 import { Global, css, jsx } from "@emotion/react";
 import React, { Fragment, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { auth } from "./firebase";
-import Sidebar from "./components/Shared/Sidebar";
-
-import SignIn from "./pages/SignIn";
-import DashboardPage from "./pages/DashboardPage";
-import SignUp from "./pages/SignUp";
-import HeroCategory from "./components/HomePage/HeroCategory";
 import HomePage from "./pages/HomePage";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Sidebar from "./components/Shared/Sidebar";
+import DashboardPage from "./pages/DashboardPage";
 import DoctorPage from "./pages/DoctorPage";
+import PatientPage from "./pages/PatientPage";
+
 function App(props) {
   const [user, loading, error] = useAuthState(auth);
   const [page, setPage] = useState("/");
-
-  const setCurrPage = (currPage) => {
-    setPage(currPage);
-  };
 
   return (
     <div>
@@ -82,42 +73,39 @@ function App(props) {
         `}
       />
       <Router>
-        {user && page !== "/" ? (
-          <div
-            css={css`
-              position: absolute;
-            `}
-          >
-            <Sidebar />
-          </div>
-        ) : null}
+        {/* <Route path="/:path">
+          {user && (
+            <div
+              css={css`
+                position: absolute;
+              `}
+            >
+              <Sidebar />
+            </div>
+          )}
+        </Route> */}
+
+        {/* TODO Replace this with a Layout Component */}
         <div
-          css={
-            user && page !== "/"
-              ? css`
-                  padding-left: 290px;
-                `
-              : css`
-                  padding-left: 0px;
-                `
-          }
+        // css={
+        //   user && page !== "/"
+        //     ? css`
+        //         padding-left: 290px;
+        //       `
+        //     : css`
+        //         padding-left: 0px;
+        //       `
+        // }
         >
-          <Fragment>
-            <Switch>
-              <Route
-                exact
-                path="/"
-                component={() => <HomePage setCurrPage={setCurrPage} />}
-              />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/signin" component={SignIn} />
-              <Route path="/doctorpage" component={DoctorPage} />
-              <Route path="/dashboard" component={DashboardPage} />
-            </Switch>
-          </Fragment>
+          <Switch>
+            <Route exact path="/" component={() => <HomePage />} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/dashboard" component={DashboardPage} />
+            <Route path="/doctorpage" component={DoctorPage} />
+          </Switch>
         </div>
       </Router>
-      {/* <HomePage /> */}
     </div>
   );
 }

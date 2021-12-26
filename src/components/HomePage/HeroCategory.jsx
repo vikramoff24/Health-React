@@ -3,7 +3,7 @@ import React from "react";
 import { css, jsx } from "@emotion/react";
 import admin from "../../assets/HomePageIcons/admin.svg";
 import { cardItems } from "../../components/Data/HomeData";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HeroCategory = () => {
   return (

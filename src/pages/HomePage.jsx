@@ -5,9 +5,7 @@ import { db } from "../firebase";
 const HomePage = (props) => {
   const [data, setData] = useState([]);
   const ref = db.collection("doctors");
-  useEffect(() => {
-    props.setCurrPage("/");
-  }, []);
+
   useEffect(() => {
     ref.onSnapshot((querySnapshot) => {
       var items = [];
