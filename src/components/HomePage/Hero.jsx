@@ -1,19 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css, jsx } from "@emotion/react";
-// import styled from "@emotion/styled";
 import React, { Fragment } from "react";
 import hero from "../../assets/hero.svg";
 import Navbar from "../Shared/Navbar";
 const Hero = () => {
-  // const HighlightedSpan = styled.span`
-  //   color: rgba(91, 103, 202, 1);
-  // `;
-
   return (
     <div
       css={css`
         background-color: #eae9f4;
-        height: 700px;
+        height: 100vh;
         position: relative;
       `}
     >
@@ -34,16 +29,15 @@ const Hero = () => {
         css={css`
           position: absolute;
           top: 50%;
-          left: 70px;
+          left: 4rem;
           transform: translate(0, -50%);
         `}
       >
         <h1
           css={css`
             font-weight: 500;
-            font-size: 57px;
+            font-size: 42pt;
             line-height: 69px;
-
             width: 420px;
             color: #333944;
           `}
@@ -56,15 +50,13 @@ const Hero = () => {
           css={css`
             background-color: rgba(91, 103, 202, 1);
             font-weight: 400;
-            border-radius: 8px;
-            height: 55px;
-            width: 260px;
-            font-size: 19px;
-            letter-spacing: 0.3px;
-            margin-top: 55px;
+            border-radius: 0.5rem;
+            padding: 1rem 3rem;
+            text-align: center;
+            font-size: 16pt;
+            margin-top: 3rem;
           `}
         >
-          {" "}
           Make Appointment
         </button>
       </div>

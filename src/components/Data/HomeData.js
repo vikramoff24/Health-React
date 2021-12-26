@@ -4,11 +4,11 @@ import patient from "../../assets/HomePageIcons/patient.svg";
 
 import doctor from "../../assets/HomePageIcons/doctor.svg";
 const cardItems = [
-  {
-    icon: admin,
-    path: "/appoinment",
-    name: "Admin",
-  },
+  // {
+  //   icon: admin,
+  //   path: "/appoinment",
+  //   name: "Admin",
+  // },
   {
     icon: doctor,
     path: "/doctor",

@@ -67,7 +67,6 @@ function App(props) {
             border-radius: 8px;
             border: none;
             color: #fff;
-            height: 45px;
             display: block;
 
             font-weight: 600;
