@@ -76,6 +76,7 @@ const Signup = () => {
             css={css`
               color: #4f4dab;
               font-weight: 600;
+              text-decoration: none;
             `}
           >
             Sign in

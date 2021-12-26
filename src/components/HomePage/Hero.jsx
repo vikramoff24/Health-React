@@ -3,6 +3,8 @@ import { css, jsx } from "@emotion/react";
 import React, { Fragment } from "react";
 import hero from "../../assets/hero.svg";
 import Navbar from "../Shared/Navbar";
+import { Link, useHistory } from "react-router-dom";
+
 const Hero = () => {
   return (
     <div
@@ -45,20 +47,27 @@ const Hero = () => {
           Find your <span className="base-color">doctor</span> & make{" "}
           <span className="base-color">appointment.</span>
         </h1>
-        <button
-          className="btn "
+        <Link
+          to="/signin"
           css={css`
-            background-color: rgba(91, 103, 202, 1);
-            font-weight: 400;
-            border-radius: 0.5rem;
-            padding: 1rem 3rem;
-            text-align: center;
-            font-size: 16pt;
-            margin-top: 3rem;
+            text-decoration: none;
           `}
         >
-          Make Appointment
-        </button>
+          <button
+            className="btn"
+            css={css`
+              background-color: rgba(91, 103, 202, 1);
+              font-weight: 400;
+              border-radius: 0.5rem;
+              padding: 1rem 3rem;
+              text-align: center;
+              font-size: 16pt;
+              margin-top: 3rem;
+            `}
+          >
+            Make Appointment
+          </button>
+        </Link>
       </div>
     </div>
   );
