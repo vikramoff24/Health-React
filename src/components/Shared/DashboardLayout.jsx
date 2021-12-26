@@ -12,7 +12,13 @@ const DashboardLayout = ({ children }) => {
       `}
     >
       <Sidebar />
-      <section>{children}</section>
+      <section
+        css={css`
+          padding: 2.5rem;
+        `}
+      >
+        {children}
+      </section>
     </main>
   );
 };

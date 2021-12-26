@@ -2,52 +2,47 @@
 import React from "react";
 import { css, jsx } from "@emotion/react";
 import appo from "../../assets/DashboardIcons/appointments.svg";
+
 const DashboardCard = () => {
   return (
     <div
       css={css`
         background: #ffffff;
         box-shadow: 0px 4px 16px 2px rgba(51, 57, 68, 0.12);
-        border-radius: 8px;
-        width: 327.6px;
-        height: 135.1px;
-        margin-left: 20px;
-        padding: 15px 20px;
+        border-radius: 0.5rem;
+        width: 100%auto;
+        max-width: 320px;
+        padding: 1.5rem;
         position: relative;
       `}
     >
-      <p
+      <div
         css={css`
-          letter-spacing: 0.1px;
           color: #4f4dab;
-          font-size: 29.5px;
-          margin: 0;
+          font-size: 26pt;
         `}
       >
         2
-      </p>
-      <p
+      </div>
+      <div
         css={css`
-          letter-spacing: 0.1px;
           color: #333944;
-          font-size: 18dpx;
-          margin: 0;
-          font-weight: 400;
-          margin-top: -10px;
+          font-size: 14pt;
+          margin-top: -0.5rem;
         `}
       >
         Appointments
-      </p>
-      <p
+      </div>
+      <div
         css={css`
-          letter-spacing: 0.1px;
           color: #333944;
-          font-size: 12.8px;
-          margin-top: 17px;
+          font-size: 12pt;
+          margin-top: 1rem;
         `}
       >
         Approve Appointment : 0
-      </p>
+      </div>
+
       <img
         src={appo}
         alt="Appointments"
