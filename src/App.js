@@ -73,30 +73,7 @@ function App(props) {
         `}
       />
       <Router>
-        {/* <Route path="/:path">
-          {user && (
-            <div
-              css={css`
-                position: absolute;
-              `}
-            >
-              <Sidebar />
-            </div>
-          )}
-        </Route> */}
-
-        {/* TODO Replace this with a Layout Component */}
-        <div
-        // css={
-        //   user && page !== "/"
-        //     ? css`
-        //         padding-left: 290px;
-        //       `
-        //     : css`
-        //         padding-left: 0px;
-        //       `
-        // }
-        >
+        <div>
           <Switch>
             <Route exact path="/" component={() => <HomePage />} />
             <Route path="/signup" component={SignUp} />

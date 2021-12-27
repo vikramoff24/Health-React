@@ -6,8 +6,8 @@ import { css, jsx } from "@emotion/react";
 import Logo from "./Logo";
 import Profile from "../../assets/Person.png";
 import i from "../../assets/Icons/dashboard.svg";
-import { menuItems, logOut } from "../Data/SidebarData";
-import MenuItem from "./MenuItem";
+import { sidebarMenuItem, logOut } from "../Data/SidebarData";
+import SidebarMenuItem from "./SidebarMenuItem";
 import { auth, db, logout } from "../../firebase";
 
 const Sidebar = () => {
@@ -125,8 +125,8 @@ const Sidebar = () => {
         `}
       >
         {" "}
-        {menuItems.map((item) => (
-          <MenuItem item={item} />
+        {sidebarMenuItem.map((item) => (
+          <SidebarMenuItem item={item} />
         ))}{" "}
       </div>
       <div
@@ -145,7 +145,7 @@ const Sidebar = () => {
       >
         {" "}
         <div onClick={logout}>
-          <MenuItem item={logOut[0]} />
+          <SidebarMenuItem item={logOut[0]} />
         </div>
       </div>
     </div>

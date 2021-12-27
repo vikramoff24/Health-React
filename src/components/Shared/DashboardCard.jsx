@@ -8,9 +8,9 @@ const DashboardCard = () => {
     <div
       css={css`
         background: #ffffff;
-        box-shadow: 0px 4px 16px 2px rgba(51, 57, 68, 0.12);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         border-radius: 0.5rem;
-        width: 100%auto;
+        width: 100% auto;
         max-width: 320px;
         padding: 1.5rem;
         position: relative;

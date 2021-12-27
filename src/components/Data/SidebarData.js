@@ -5,7 +5,7 @@ import patient from "../../assets/Icons/patient.svg";
 
 import logout from "../../assets/Icons/logout.svg";
 
-const menuItems = [
+const sidebarMenuItem = [
   {
     icon: dashboard,
     path: "/dashboard",
@@ -36,4 +36,4 @@ const logOut = [
   },
 ];
 
-export { menuItems, logOut };
+export { sidebarMenuItem, logOut };
