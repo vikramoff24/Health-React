@@ -8,19 +8,18 @@ const MenuItem = ({ item }) => {
     <Link to={item.path}>
       <div
         css={css`
-          margin-top: 6px;
+          margin-top: 0.5rem;
         `}
       >
-        <img src={item.icon} alt={"svg0"} width="25px" height="25px"></img>
+        <img src={item.icon} alt={"svg0"} width="24px" height="24px"></img>
 
         <p
           css={css`
-            letter-spacing: 0.3px;
-            font-size: 21px;
+            font-size: 14pt;
             color: rgba(51, 57, 68, 0.75);
             display: inline-block;
             vertical-align: -4px;
-            margin-left: 30px;
+            margin-left: 2rem;
           `}
         >
           {item.name}

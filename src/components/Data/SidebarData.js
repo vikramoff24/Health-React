@@ -18,12 +18,12 @@ const sidebarMenuItem = [
   },
   {
     icon: patient,
-    path: "/signin",
+    path: "/patient",
     name: "Patient",
   },
   {
     icon: appointment,
-    path: "/appoinment",
+    path: "/appointment",
     name: "Appointment",
   },
 ];

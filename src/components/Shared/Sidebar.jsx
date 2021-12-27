@@ -61,7 +61,7 @@ const Sidebar = () => {
   return (
     <div
       css={css`
-        box-shadow: 4px 0px 16px rgba(51, 57, 68, 0.12);
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         height: 100vh;
         overflow-y: auto;
       `}
@@ -73,7 +73,6 @@ const Sidebar = () => {
           padding-top: 1.5rem;
         `}
       >
-        {" "}
         <Logo />
       </div>
       <div
@@ -87,16 +86,15 @@ const Sidebar = () => {
           css={css`
             width: 65px;
             margin: 0 auto;
-            margin-top: 30px;
+            margin-top: 2rem;
             display: block;
           `}
         />
 
         <p
           css={css`
-            font-size: 19px;
-            letter-spacing: 0.1px;
-            margin-top: 10px;
+            font-size: 14pt;
+            margin-top: 0.5rem;
             color: rgba(136, 136, 136, 0.75);
           `}
         >
@@ -105,45 +103,40 @@ const Sidebar = () => {
         <p
           css={css`
             font-weight: 500;
-            font-size: 25px;
-            line-height: 20px;
-            letter-spacing: 0.1px;
+            font-size: 16pt;
             color: #333944;
-            margin-top: 20px;
+            margin-top: 1rem;
           `}
         >
-          {" "}
-          {name}
+          {/* {name} */}
+          John Doe
         </p>
       </div>
       <div
         css={css`
-          padding-top: 30px;
+          padding-top: 1rem;
           width: fit-content;
           margin: 0 auto;
-          padding-right: 35px;
+          margin-left: 2.5rem;
         `}
       >
-        {" "}
         {sidebarMenuItem.map((item) => (
           <SidebarMenuItem item={item} />
-        ))}{" "}
+        ))}
       </div>
       <div
         css={css`
           border-top: 1px solid rgba(136, 136, 136, 0.5);
-          margin-top: 18px;
+          margin-top: 0.5rem;
         `}
       ></div>
       <div
         css={css`
           margin: 0 auto;
-          margin-top: 20px;
-          width: 217px;
-          padding-right: 35px;
+          margin-top: 1rem;
+          margin-left: 2.5rem;
         `}
       >
-        {" "}
         <div onClick={logout}>
           <SidebarMenuItem item={logOut[0]} />
         </div>

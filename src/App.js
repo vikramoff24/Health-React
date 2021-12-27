@@ -11,6 +11,7 @@ import Sidebar from "./components/Shared/Sidebar";
 import DashboardPage from "./pages/DashboardPage";
 import DoctorPage from "./pages/DoctorPage";
 import PatientPage from "./pages/PatientPage";
+import AppointmentPage from "./pages/AppointmentPage";
 
 function App(props) {
   const [user, loading, error] = useAuthState(auth);
@@ -79,7 +80,9 @@ function App(props) {
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/dashboard" component={DashboardPage} />
-            <Route path="/doctorpage" component={DoctorPage} />
+            <Route path="/doctor" component={DoctorPage} />
+            <Route path="/appointment" component={AppointmentPage} />
+            <Route path="/patient" component={PatientPage} />
           </Switch>
         </div>
       </Router>
